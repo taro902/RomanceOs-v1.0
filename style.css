@@ -1,0 +1,64 @@
+* { box-sizing: border-box; }
+body {
+    background-color: #000;
+    color: #0f0;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    margin: 0;
+}
+
+#terminal {
+    width: 100vw;
+    height: 100vh;
+    padding: 15px;
+    overflow-y: scroll;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
+}
+#terminal::-webkit-scrollbar {
+    display: none; 
+}
+
+#history div {
+    white-space: pre-wrap; 
+    word-break: break-all;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+}
+.prompt {
+    color: #0f0;
+    margin-right: 8px;
+}
+#command-input {
+    background-color: transparent;
+    border: none;
+    color: #0f0;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    flex-grow: 1;
+    padding: 0;
+}
+#command-input:focus {
+    outline: none;
+}
+
+#command-input {
+    position: relative;
+}
+#command-input:focus {
+    animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+    from, to { border-right: 10px solid #0f0; }
+    50% { border-right-color: transparent; }
+}
+
+.output-command { color: #888; } 
+.output-error { color: #f00; }
+.output-success { color: #0ff; }
+.output-system { color: #ff0; }
+.output-help-cmd { color: #0ff; display: inline-block; width: 120px; }
+.output-help-desc { color: #0f0; }
